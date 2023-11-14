@@ -1,6 +1,7 @@
 # ejercicios a entregar 10 16 22 
 from cola import Cola 
 from pila import Pila
+from heap import Heap
 
 # actividad 10 
 notificaciones = [
@@ -84,3 +85,39 @@ if encontrado:
     print(f'{nombre} esta en la cola su nombre de superheroe es {superheroe}')
 else:
     print('{nombre} no esta en la cola')
+
+
+print('')
+
+# actividad 16 
+cola = Heap()
+
+# punto a
+cola.add_element(('doc1',1))
+cola.add_element(('doc2',1))
+cola.add_element(('doc3',1))
+
+# punto b
+print(f'primer documento {cola.remove_element()[0]}')
+
+# punto c
+cola.add_element(('doc4', 2))
+cola.add_element(('doc5',2))
+
+# punto d
+cola.add_element(('doc6', 3))
+
+# punto e
+print('los dos primeros documentos:')
+print(cola.remove_element()[0])
+print(cola.remove_element()[0])
+
+# punto f
+cola.add_element(('doc7',1))
+cola.add_element(('doc8',1))
+cola.add_element(('doc9',3))
+
+# punto g
+print('documentos:')
+while cola.size() > 0:
+    print(cola.remove_element()[0])
