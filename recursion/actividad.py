@@ -2,6 +2,8 @@
 def RomanoaDecimal(romano):
     '''convierte un numero romano a decimal.'''
     dic = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
+    if len(romano) == 0:
+        return 0
     if len(romano) == 1:
         return dic[romano]
     else:
@@ -12,7 +14,7 @@ def RomanoaDecimal(romano):
         else:
             return segundo - primero + RomanoaDecimal(romano[2:])
 
-print(RomanoaDecimal('DLV'))
+print(RomanoaDecimal('CM'))
 
 # actividad 22
 def UsarLaFuerza(mochila,objetos=0):
