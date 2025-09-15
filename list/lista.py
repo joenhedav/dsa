@@ -151,5 +151,6 @@ class Lista():
         for superheroe in self.__elements:
             if superheroe.casa == 'dc':
                 dc += 1 
-            marvel += 1 
+            elif superheroe.casa == 'marvel':
+                marvel += 1
         return dc, marvel
