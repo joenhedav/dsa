@@ -14,7 +14,7 @@ def RomanoaDecimal(romano):
         else:
             return segundo - primero + RomanoaDecimal(romano[2:])
 
-print(RomanoaDecimal('CM'))
+print(RomanoaDecimal('DLV'))
 
 # actividad 22
 def UsarLaFuerza(mochila,objetos=0):
@@ -24,7 +24,7 @@ def UsarLaFuerza(mochila,objetos=0):
     if len(mochila) == 0:
         return -1  
     elif mochila[0] == 'sable de luz':
-        return objetos+1 
+        return objetos
     else:
         return UsarLaFuerza(mochila[1:],objetos+1)
 
