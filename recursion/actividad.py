@@ -21,8 +21,9 @@ def UsarLaFuerza(mochila,objetos=0):
     '''cuenta la cantidad de objetos sacados uno a la vez de la mochila de un jedi
        hasta encontrar un sable de luz o que no queden objetos en la misma.
     '''
+    print(mochila[0])
     if len(mochila) == 0:
-        return -1  
+        return -1
     elif mochila[0] == 'sable de luz':
         return objetos
     else:
