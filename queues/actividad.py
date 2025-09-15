@@ -16,16 +16,19 @@ pila  = Pila()
 
 for notificacion in notificaciones:
     cola.arribo(notificacion)
+# punto a
 while not cola.es_vacia():
     data = cola.atencion()
     if data['app'] != 'facebook':
         cola1.arribo(data)
 while not cola1.es_vacia():
     cola.arribo(cola1.atencion())
+# punto b
 for i in range(cola.tamano()):
     data = cola.mover_al_final()
     if data['app'] == 'twitter' and 'python' in data['mensaje']:
         print(data['hora'],data['app'],data['mensaje'])
+# punto c
 for i in range(cola.tamano()):
     data = cola.mover_al_final()
     if data['hora'] >= '11:43' and data['hora'] <= '15:57':
@@ -66,16 +69,22 @@ for personaje in personajes:
 encontrado = False
 while not cola.es_vacia():
     data = cola.atencion()
+    # punto a
     if data.personaje == 'captain marvel'.title():
         print(f'el nombre de {data.personaje} es {data.nombre}')
+    # punto b
     if data.sexo == 'F':
         print(f'personaje femenino {data.personaje}')
+    # punto c
     if data.sexo == 'M':
         print(f'personaje masculino {data.personaje}')
+    # punto d
     if data.nombre == 'scott lang'.title():
         print(f'{data.nombre} es el superheroe {data.personaje}')
-    if data.personaje[0] == 'S':
-        print(f'comienza con S {data.personaje}')
+    # punto e
+    if data.personaje[0] == 'S' or data.nombre[0] == 'S':
+        print(f'comienza con S {data.personaje} {data.nombre} {data.sexo}')
+    # punto f
     if data.nombre == 'carol danvers'.title():
         encontrado = True
         nombre = data.nombre
