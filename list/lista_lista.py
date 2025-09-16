@@ -102,7 +102,7 @@ class Lista():
             if entrenador[0].ct_ganados > torneos_ganados:
                 print(entrenador[0])
     
-    # þunto c
+    # þunto d
     def mostrar_info_entrenador(self,nombre_entrenador):
         indice = self.buscar(nombre_entrenador,'nombre')
         if indice is not None:
@@ -111,7 +111,7 @@ class Lista():
             print('info de sus pokemons')
             self.elemento_indice(indice)[1].barrido()
     
-    # punto d
+    # punto e
     def porcentaje_batallas_ganadas(self,mi_porcentaje):
         entrenadores = Lista()
         for entrenador in self.__elements:
@@ -122,7 +122,7 @@ class Lista():
                     entrenadores.insertar(entrenador[0].nombre,'nombre')
         entrenadores.barrido()
    
-    # punto e
+    # punto c
     def pokemon_mayor_nivel(self):
         mayor_cantidad = self.elemento_indice(0)[0].ct_ganados # entrenador con mayor cda de tg
         pos_mayor = 0 # posición del entrenador con más torneos
