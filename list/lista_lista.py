@@ -165,15 +165,14 @@ class Lista():
         indice = self.buscar(nombre_entrenador, 'nombre')
         if indice is not None:
             sublista_pokemon = self.elemento_indice(indice)[1]
-            if sublista_pokemon.tam() == 0:
+            cantidad_pokemons = sublista_pokemon.tam()
+            if cantidad_pokemons == 0:
                 return 0
             total_niveles = 0
-            cantidad_pokemons = sublista_pokemon.tam()
             for i in range(cantidad_pokemons):
                 pokemon = sublista_pokemon.elemento_indice(i)
                 total_niveles += pokemon.nivel
-            promedio_niveles = total_niveles / cantidad_pokemons
-            return promedio_niveles
+            return total_niveles / cantidad_pokemons
         else:
             return None
     
