@@ -117,4 +117,4 @@ if resultado is not None:
     print(f'tipo: {pokemon.tipo}')
     print(f'subtipo: {pokemon.subtipo}')
 else:
-    print(f'el entrenador {nombre_entrenador} tiene el pokemon {nombre_pokemon}')
+    print(f'el entrenador {nombre_entrenador} no tiene el pokemon {nombre_pokemon}')
