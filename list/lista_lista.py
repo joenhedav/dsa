@@ -87,6 +87,7 @@ class Lista():
             value[1].barrido()
             print()
     
+    # punto a
     def obtener_cantidad_pokemons(self,nombre_entrenador):
         indice = self.buscar(nombre_entrenador,'nombre')
         if indice is not None:
@@ -95,11 +96,13 @@ class Lista():
         else:
             return None
     
+    # punto b
     def listado_entrenadores_torneos(self,torneos_ganados):
         for entrenador in self.__elements:
             if entrenador[0].ct_ganados > torneos_ganados:
                 print(entrenador[0])
     
+    # þunto c
     def mostrar_info_entrenador(self,nombre_entrenador):
         indice = self.buscar(nombre_entrenador,'nombre')
         if indice is not None:
@@ -108,6 +111,7 @@ class Lista():
             print('info de sus pokemons')
             self.elemento_indice(indice)[1].barrido()
     
+    # punto d
     def porcentaje_batallas_ganadas(self,mi_porcentaje):
         entrenadores = Lista()
         for entrenador in self.__elements:
@@ -118,9 +122,10 @@ class Lista():
                     entrenadores.insertar(entrenador[0].nombre,'nombre')
         entrenadores.barrido()
    
+    # punto e
     def pokemon_mayor_nivel(self):
-        mayor_cantidad = self.elemento_indice(0)[0].ct_ganados
-        pos_mayor = 0
+        mayor_cantidad = self.elemento_indice(0)[0].ct_ganados # entrenador con mayor cda de tg
+        pos_mayor = 0 # posición del entrenador con más torneos
 
         for i in range(1, self.tam()):
             entrenador = self.elemento_indice(i)[0]
@@ -138,6 +143,7 @@ class Lista():
                     pokemon_mayor = pokemon 
             return f'el pokemon de mayor nivel es {pokemon_mayor.nombre} {pokemon_mayor.nivel} del entrenador {entrenador.nombre}'
     
+    # punto f
     def pokemons_por_tipos(self):
         entrenadores = Lista()
         for i in range(self.tam()):
@@ -154,26 +160,24 @@ class Lista():
                     entrenadores.insertar(entrenador,'nombre')
         return entrenadores.barrido()
 
-    def promedio_nivel(self,nombre_entrenador):
-        indice = self.buscar(nombre_entrenador,'nombre')
+    # punto g
+    def promedio_nivel(self, nombre_entrenador):
+        indice = self.buscar(nombre_entrenador, 'nombre')
         if indice is not None:
-            for i in range(self.tam()):
-                sublista_pokemon = self.elemento_indice(i)[1]
-                total_niveles = 0
-                if sublista_pokemon.tam()>0:
-                    for i in range(sublista_pokemon.tam()):
-                        pokemon = sublista_pokemon.elemento_indice(i)
-                        cantidad_pokemons = sublista_pokemon.tam()
-                        total_niveles += pokemon.nivel
-                            
-                    if cantidad_pokemons > 0:
-                        promedio_niveles = total_niveles / cantidad_pokemons
-                        return promedio_niveles
-                    else:
-                        return 0
+            sublista_pokemon = self.elemento_indice(indice)[1]
+            if sublista_pokemon.tam() == 0:
+                return 0
+            total_niveles = 0
+            cantidad_pokemons = sublista_pokemon.tam()
+            for i in range(cantidad_pokemons):
+                pokemon = sublista_pokemon.elemento_indice(i)
+                total_niveles += pokemon.nivel
+            promedio_niveles = total_niveles / cantidad_pokemons
+            return promedio_niveles
         else:
             return None
     
+    # punto h
     def entrenador_con_pokemon(self,nombre_pokemon):
         cantidad_pokemons = 0
         for i in range(self.tam()):
@@ -182,6 +186,7 @@ class Lista():
                 cantidad_pokemons += 1 
         return cantidad_pokemons 
 
+    # punto i
     def pokemon_repetido(self):
         entrenadores = Lista()
         pokemon_vistos = {}
@@ -199,6 +204,7 @@ class Lista():
                     entrenadores.insertar(entrenador,'nombre')
         return entrenadores.barrido()
 
+    # punto j
     def determinado_pokemon(self,nombres_pokemon):
         entrenadores = Lista()
         for i in range(self.tam()):
@@ -213,6 +219,7 @@ class Lista():
                 entrenadores.insertar(entrenador,'nombre')
         return entrenadores.barrido()
 
+    # punto k
     def entrenador_tiene_pokemon(self,nombre_entrenador,nombre_pokemon):
         indice_entrenador = self.buscar(nombre_entrenador,'nombre')
         if indice_entrenador is not None:
