@@ -188,17 +188,17 @@ class Lista():
     # punto i
     def pokemon_repetido(self):
         entrenadores = Lista()
-        pokemon_vistos = {}
         for i in range(self.tam()):
             entrenador = self.elemento_indice(i)[0]
             sublista_pokemon = self.elemento_indice(i)[1]
+            pokemons_vistos = set()
             tiene_repetidos = False 
             if sublista_pokemon.tam()>0:
                 for pokemon in sublista_pokemon.__elements:
-                    if pokemon.nombre in pokemon_vistos:
+                    if pokemon.nombre in pokemons_vistos:
                         tiene_repetidos = True
                         break
-                    pokemon_vistos[pokemon.nombre] = True
+                    pokemons_vistos.add(pokemon.nombre)
                 if tiene_repetidos:
                     entrenadores.insertar(entrenador,'nombre')
         return entrenadores.barrido()

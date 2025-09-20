@@ -12,19 +12,25 @@ lista_heroes = [
     {'name': 'dotor strage', 'heroe': True},
     {'name': 'doctor octopus', 'heroe': True},
     {'name': 'deadpool', 'heroe': True},
+    {'name': 'abominacion', 'heroe': False}
 ]
 
 arbol = BinaryTree()
 for value in lista_heroes:
     arbol.insert_node(value['name'].title(), value['heroe'])
+# punto b
 print('villanos ordenados alfabeticamente')
 arbol.inorden_super_or_villano(False)
+# punto c
 print('\ncomienza con C')
 arbol.inorden_start_with('C')
+# punto d
 cantidad = arbol.contar_heroes()
 print(f'cantidad de supereheroes {cantidad}')
+# punto f
 print('\nlistado desdendente de supereheroes')
 arbol.postorden_superheroe(True)
+# punto e
 print('\nrealizando la busqueda por proximidad')
 arbol.search_by_coincidence('Do')
 value = input('ingrese el nombre que desea modificar ')

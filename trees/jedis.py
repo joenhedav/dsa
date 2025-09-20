@@ -1,6 +1,6 @@
 from arbol_binario import BinaryTree, get_value_from_file
 
-file_jedi = open('/home/m0rphine/me/dsa/Trees/jedis.txt')
+file_jedi = open('/home/m0rphine/me/dsa/trees/jedis.txt')
 read_lines = file_jedi.readlines()
 file_jedi.close()
 
@@ -13,6 +13,7 @@ read_lines.pop(0)
 for index, line_jedi in enumerate(read_lines):
     jedi = line_jedi.split(';')
     jedi.pop()
+    # punto a
     name_tree.insert_node(jedi[0], index+2)
     ranking_tree.insert_node(jedi[1], index+2)
     specie_tree.insert_node(jedi[2], index+2)
