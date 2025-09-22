@@ -15,7 +15,7 @@ datos = [
     {'nombre': 'Esteno', 'derrotado': None},
     {'nombre': 'Medusa', 'derrotado': 'Perseo'},
     {'nombre': 'Ladon', 'derrotado': 'Heracles'},
-    {'nombre': 'Aguila del Caucaso ', 'derrotado': None},
+    {'nombre': 'Aguila del Caucaso', 'derrotado': None},
     {'nombre': 'Quimera', 'derrotado': 'Belerofonte'},
     {'nombre': 'Hidra de Lerna', 'derrotado': 'Heracles'},
     {'nombre': 'Leon de Nemea', 'derrotado': 'Heracles'},
@@ -90,6 +90,7 @@ capturadores = {
         'Toro de Creta':'Heracles'
         }
 arbol.inorden_add_capturer(capturadores)
+arbol.inorden_with_capturer()
 
 # punto h 
 print('\nModificando capturadores')

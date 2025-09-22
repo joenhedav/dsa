@@ -473,9 +473,21 @@ class BinaryTree:
                 __inorden_add_capturer(root.left, capturer_dict)
                 if root.value in capturer_dict:
                     root.other_values['capturada'] = capturer_dict[root.value]
+                else:
+                    root.other_values['capturada'] = None
                 __inorden_add_capturer(root.right, capturer_dict)
             
         __inorden_add_capturer(self.root, capturer_dict)
+
+    def inorden_with_capturer(self):
+        def __inorden_with_capturer(root):
+            if root is not None:
+                __inorden_with_capturer(root.left)
+                creature = root.value
+                capturer = root.other_values['capturada']
+                print(f'nombre: {creature}; capturada por: {capturer}')
+                __inorden_with_capturer(root.right)
+        __inorden_with_capturer(self.root)
 
     def inorden_defeated_by(self, hero_name):
         def __inorden_defeated_by(root, hero_name):
