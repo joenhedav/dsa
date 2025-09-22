@@ -452,7 +452,7 @@ class BinaryTree:
         def __inorden_add_description(root):
             if root is not None:
                 __inorden_add_description(root.left)
-                description = input(f'descripcion de {root.value}: ')                    
+                description = input(f'descripcion de {root.value}: ')
                 root.other_values['descripcion'] = description
                 __inorden_add_description(root.right)
         __inorden_add_description(self.root)
