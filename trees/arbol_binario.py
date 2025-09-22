@@ -464,7 +464,7 @@ class BinaryTree:
                 __inorden_with_description(root.left)
                 creature = root.value
                 description = root.other_values.get('descripcion', '')
-                print(f'nombre: {creature}, descriocion: {description}')
+                print(f'nombre: {creature}, descripcion: {description}')
                 __inorden_with_description(root.right)
         __inorden_with_description(self.root)
         
