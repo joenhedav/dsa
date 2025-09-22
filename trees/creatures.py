@@ -127,11 +127,14 @@ else:
 print('\nSe modifico la descripcion de Aves del Estinfalo')
 pos = arbol.search('Aves del Estinfalo')
 if pos is not None:
+    if 'descripcion' not in pos.other_values or pos.other_values['descripcion'] is None:
+        pos.other_values['descripcion'] = ''
     pos.other_values['descripcion'] += ' Heracles derroto a varias'
 else:
     print('Aves del Estinfalo no esta en el arbol')
 descripcion = pos.other_values['descripcion']
 print(f'Descripcion modificada {descripcion}')
+arbol.inorden_with_description()
 
 # punto l 
 print('\nSe modifica el nombre de Ladon')
