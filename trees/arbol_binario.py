@@ -448,23 +448,22 @@ class BinaryTree:
         
         __inorden_add_field_description(self.root)
 
-    def inorden_add_description(self, creature_name, description):
-        def __inorden_add_description(root, creature_name, description):
+    def inorden_add_description(self):
+        def __inorden_add_description(root):
             if root is not None:
-                __inorden_add_description(root.left, creature_name, description)
-                if root.value == creature_name:
-                    root.other_values['descripcion'] = description
-                __inorden_add_description(root.right,creature_name,description)
-            
-        __inorden_add_description(self.root,creature_name, description)
+                __inorden_add_description(root.left)
+                description = input(f'descripcion de {root.value}: ')                    
+                root.other_values['descripcion'] = description
+                __inorden_add_description(root.right)
+        __inorden_add_description(self.root)
         
     def inorden_with_description(self):
         def __inorden_with_description(root):
             if root is not None:
                 __inorden_with_description(root.left)
                 creature = root.value
-                description = root.other_values.get('descripcion', '')
-                print(f'nombre: {creature}, descripcion: {description}')
+                description = root.other_values['descripcion']
+                print(f'nombre: {creature};  descripcion: {description}')
                 __inorden_with_description(root.right)
         __inorden_with_description(self.root)
         

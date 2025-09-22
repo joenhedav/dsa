@@ -53,13 +53,9 @@ arbol.inorden_add_field_captured()
 arbol.inorden_criatura_defeat_by()
 
 # punto b 
-creature_name = input('Criatura ')
-pos = arbol.search(creature_name)
-if pos is not None:
-    descripcion = input('Descripcion ')
-    arbol.inorden_add_description(creature_name, descripcion)
-else:
-    print(f'{creature_name} no esta en el arbol')
+arbol.inorden_add_description()
+arbol.inorden_with_description()
+print("")
 
 # punto c
 print('\nInformacion de Talos')
