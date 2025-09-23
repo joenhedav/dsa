@@ -47,6 +47,7 @@ for criatura in datos:
     arbol.insert_node(criatura['nombre'], {'derrotado': criatura['derrotado']})
 
 arbol.inorden_add_field_description()
+# punto g
 arbol.inorden_add_field_captured()
 
 # punto a 
@@ -82,15 +83,6 @@ arbol.inorden_defeated_by('Heracles')
 # punto f 
 print('\nCriaturas que no fueron derrotadas')
 arbol.inorden_not_defeated()
-
-# punto g 
-capturadores = {
-        'Medusa':'Teseo',
-        'Tifon':'Heracles',
-        'Toro de Creta':'Heracles'
-        }
-arbol.inorden_add_capturer(capturadores)
-arbol.inorden_with_capturer()
 
 # punto h 
 print('\nModificando capturadores')
@@ -148,12 +140,6 @@ arbol.by_level()
 # punto n 
 print('\nCriaturas capturadas por Heracles')
 arbol.inorden_captured_by('Heracles')
-
-
-
-
-
-
 
 
 

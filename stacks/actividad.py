@@ -87,29 +87,3 @@ while not pila.es_vacia():
     # punto d 
     if data.name[0] == 'C' or data.name[0] == 'G' or data.name[0] == 'D':
         print(f'su nombre comienza con C G o D {data.name}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

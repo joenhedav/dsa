@@ -81,6 +81,7 @@ class Lista():
 
     # ejercicio 15
     def barrido_entrenadores(self):
+        '''muestra todos los entrenadores con sus pokemons'''
         for value in self.__elements:
             print(value[0])
             print('Lista de Pokemons:')
@@ -89,6 +90,7 @@ class Lista():
     
     # punto a
     def obtener_cantidad_pokemons(self,nombre_entrenador):
+        '''obtiene la cantidad de pokemons de un determinado entrenador'''
         indice = self.buscar(nombre_entrenador,'nombre')
         if indice is not None:
             cantidad_pokemons = self.elemento_indice(indice)[1].tam()
@@ -98,32 +100,14 @@ class Lista():
     
     # punto b
     def listado_entrenadores_torneos(self,torneos_ganados):
+        '''muestra los entrenadores que ganaron mas de 3 torneos'''
         for entrenador in self.__elements:
             if entrenador[0].ct_ganados > torneos_ganados:
                 print(entrenador[0])
     
-    # þunto d
-    def mostrar_info_entrenador(self,nombre_entrenador):
-        indice = self.buscar(nombre_entrenador,'nombre')
-        if indice is not None:
-            print(f'\ninfo del entrenador {nombre_entrenador}')
-            print(self.elemento_indice(indice)[0])
-            print('info de sus pokemons')
-            self.elemento_indice(indice)[1].barrido()
-    
-    # punto e
-    def porcentaje_batallas_ganadas(self,mi_porcentaje):
-        entrenadores = Lista()
-        for entrenador in self.__elements:
-            total = entrenador[0].cb_ganadas + entrenador[0].cb_perdidas
-            if total > 0:
-                porcentaje = (entrenador[0].cb_ganadas / total) * 100
-                if porcentaje > mi_porcentaje:
-                    entrenadores.insertar(entrenador[0].nombre,'nombre')
-        entrenadores.barrido()
-   
     # punto c
     def pokemon_mayor_nivel(self):
+        '''obtiene el pokemon de mayor nivel del entrenador con mas torneos ganados'''
         mayor_cantidad = self.elemento_indice(0)[0].ct_ganados # entrenador con mayor cda de tg
         pos_mayor = 0 # posición del entrenador con más torneos
 
@@ -143,8 +127,31 @@ class Lista():
                     pokemon_mayor = pokemon 
             return f'el pokemon de mayor nivel es {pokemon_mayor.nombre} {pokemon_mayor.nivel} del entrenador {entrenador.nombre}'
     
+    # þunto d
+    def mostrar_info_entrenador(self,nombre_entrenador):
+        '''muestra toda la informacion de un entrenador y sus pokemons'''
+        indice = self.buscar(nombre_entrenador,'nombre')
+        if indice is not None:
+            print(f'\ninfo del entrenador {nombre_entrenador}')
+            print(self.elemento_indice(indice)[0])
+            print('info de sus pokemons')
+            self.elemento_indice(indice)[1].barrido()
+    
+    # punto e
+    def porcentaje_batallas_ganadas(self,mi_porcentaje):
+        '''muestra los entrenadores cuyo porcentaje de batallas ganadas sea mayor'''
+        entrenadores = Lista()
+        for entrenador in self.__elements:
+            total = entrenador[0].cb_ganadas + entrenador[0].cb_perdidas
+            if total > 0:
+                porcentaje = (entrenador[0].cb_ganadas / total) * 100
+                if porcentaje > mi_porcentaje:
+                    entrenadores.insertar(entrenador[0].nombre,'nombre')
+        entrenadores.barrido()
+    
     # punto f
     def pokemons_por_tipos(self):
+        '''muestra los entrenadores que tengan pokemons de tipo agua volador, fuego planta'''
         entrenadores = Lista()
         for i in range(self.tam()):
             entrenador = self.elemento_indice(i)[0]
@@ -162,6 +169,7 @@ class Lista():
 
     # punto g
     def promedio_nivel(self, nombre_entrenador):
+        '''obtiene el promedio de nivel de los pokemons de un determinado entrenador'''
         indice = self.buscar(nombre_entrenador, 'nombre')
         if indice is not None:
             sublista_pokemon = self.elemento_indice(indice)[1]
@@ -178,6 +186,7 @@ class Lista():
     
     # punto h
     def entrenador_con_pokemon(self,nombre_pokemon):
+        '''muestra cuantos entrenadores tienen a un pokemon determinado'''
         cantidad_pokemons = 0
         for i in range(self.tam()):
             sublista_pokemon = self.elemento_indice(i)[1]
@@ -187,12 +196,13 @@ class Lista():
 
     # punto i
     def pokemon_repetido(self):
+        '''muestra los entrenadores que tienen pokemons repetidos'''
         entrenadores = Lista()
         for i in range(self.tam()):
             entrenador = self.elemento_indice(i)[0]
             sublista_pokemon = self.elemento_indice(i)[1]
             pokemons_vistos = set()
-            tiene_repetidos = False 
+            tiene_repetidos = False
             if sublista_pokemon.tam()>0:
                 for pokemon in sublista_pokemon.__elements:
                     if pokemon.nombre in pokemons_vistos:
@@ -205,6 +215,7 @@ class Lista():
 
     # punto j
     def determinado_pokemon(self,nombres_pokemon):
+        '''muestra los entrenadores que tienen a tyrantrum, terrakion o wingull'''
         entrenadores = Lista()
         for i in range(self.tam()):
             entrenador = self.elemento_indice(i)[0]
@@ -220,10 +231,11 @@ class Lista():
 
     # punto k
     def entrenador_tiene_pokemon(self,nombre_entrenador,nombre_pokemon):
+        '''determina si un entrenador x, tiene a un pokemon y dados sus nombres'''
         indice_entrenador = self.buscar(nombre_entrenador,'nombre')
         if indice_entrenador is not None:
             sublista_pokemon = self.elemento_indice(indice_entrenador)[1]
-            indice_pokemon = sublista_pokemon.buscar(nombre_pokemon, 'nombre') 
+            indice_pokemon = sublista_pokemon.buscar(nombre_pokemon, 'nombre')
             
             if indice_pokemon is not None:
                 entrenador = self.elemento_indice(indice_entrenador)[0]

@@ -89,9 +89,11 @@ class Lista():
     # ejercicio 6
     # punto a 
     def eliminar_superheroe(self,nombre):
+        '''elimina un superheroe de la lista dado su nombre'''
         self.eliminar(nombre,'nombre')
     # punto b 
     def mostrar_aparicion(self,nombre):
+        '''muestra el año de aparicion de un superheroe dado su nombre'''
         indice = self.buscar(nombre,'nombre')
         if indice is not None:
             superheroe = self.elemento_indice(indice)
@@ -100,6 +102,7 @@ class Lista():
             return None
     # punto c 
     def cambiar_casa(self,nombre,nueva_casa):
+        '''cambia la casa de un superheroe dado su nombre'''
         indice = self.buscar(nombre,'nombre')
         if indice is not None:
             superheroe = self.elemento_indice(indice)
@@ -109,6 +112,7 @@ class Lista():
             return False
     # punto d 
     def mostrar_en_bio(self):
+        '''muestra los superheroes que tienen la palabra traje o armadura en su biografia'''
         superheroes = []
         for superheroe in self.__elements:
             if 'traje' in superheroe.biografia.lower() or 'armadura' in superheroe.biografia.lower():
@@ -116,13 +120,15 @@ class Lista():
         return superheroes    
     # punto e  
     def aparicion_superior(self,anio):
+        '''muestra los superheroes con año de aparicion mayor a un detterminado año'''
         superheroes= []
         for superheroe in self.__elements:
             if superheroe.aparicion > anio:
                 superheroes.append(superheroe.nombre)
         return superheroes
-    # punto f   
+    # punto f
     def casa_personaje(self,nombre):
+        '''muestra la casa de un superheroe dado su nombre'''
         indice = self.buscar(nombre,'nombre')
         if indice is not None:
             data = self.elemento_indice(indice)
@@ -131,6 +137,7 @@ class Lista():
             return None
     # punto g 
     def mostrar_info(self,nombre):
+        '''muetra toda la info de un superheroe dado su nombre'''
         indice = self.buscar(nombre,'nombre')
         if indice is not None:
             data = self.elemento_indice(indice)
@@ -139,6 +146,7 @@ class Lista():
             return None
     # punto h 
     def superheroes_por_letra_inicial(self):
+        '''muestra los superheroes cuyos nombres comienzan con B M o S'''
         superheroes =[]
         for superheroe in self.__elements:
             if superheroe.nombre[0] in ['B','M','S']:
@@ -146,6 +154,7 @@ class Lista():
         return superheroes
     # punto i 
     def contar_por_casa(self):
+        '''cuenta cuantos personajes hay por cada casa comic'''
         marvel = 0
         dc = 0 
         for superheroe in self.__elements:

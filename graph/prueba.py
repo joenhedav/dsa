@@ -1,7 +1,7 @@
 from grafo import Grafo
 
 # ejercicio 14
-'''
+
 # punto a
 lista = ['cocina','comedor','cochera','quincho','bano1','bano2','hab1','hab2', 'sala_estar','terraza','patio']
 
@@ -83,7 +83,7 @@ if(origen is not None and destino is not None):
                 longitud+=value[1]
                 fin = value[2]
 print(f'total de metros de cable de red necesarios para conectar el router con el smart tv; {longitud} metros')
-'''
+
 
 # ejercicio 15 
 class Maravilla:    

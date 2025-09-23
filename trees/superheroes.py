@@ -1,6 +1,7 @@
 from arbol_binario import BinaryTree
 
 # ejercicio 5
+# punto a
 lista_heroes = [
     {'name': 'iron man', 'heroe': True},
     {'name': 'thanos', 'heroe': False},

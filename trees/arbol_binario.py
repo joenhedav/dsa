@@ -118,16 +118,6 @@ class BinaryTree:
         
         __inorden_file(self.root, file_name)
 
-    def inorden_start_with(self, cadena):
-        def __inorden_start_with(root, cadena):
-            if root is not None:
-                __inorden_start_with(root.left, cadena)
-                if root.other_values is True and root.value.upper().startswith(cadena):
-                    print(root.value)
-                __inorden_start_with(root.right, cadena)
-
-        __inorden_start_with(self.root, cadena)
-
     def postorden(self):
         def __postorden(root):
             if root is not None:
@@ -263,7 +253,9 @@ class BinaryTree:
         return None
     
     # ejercicio 5
+    # punto b
     def inorden_super_or_villano(self, is_hero):
+        '''barrido inorden de superheroes o villanos'''
         def __inorden_s_v(root, is_hero):
             if root is not None:
                 __inorden_s_v(root.left, is_hero)
@@ -274,6 +266,8 @@ class BinaryTree:
         __inorden_s_v(self.root, is_hero) 
 
     def generar_bosque_s_v(self):
+        '''genera un bosque de superheroes y villanos, cuenta cuantos nodos tiene cada uno
+        y realiza un barrido ordenado alfabeticamente de cada arbol'''
         arbol_superheroes = BinaryTree()
         arbol_villanos = BinaryTree()
         
@@ -300,7 +294,19 @@ class BinaryTree:
                 'nodos_villanos':nodos_villanos,
                 }
 
+    def inorden_start_with(self, cadena):
+        '''muestra los superheroes que comienza con determinada'''
+        def __inorden_start_with(root, cadena):
+            if root is not None:
+                __inorden_start_with(root.left, cadena)
+                if root.other_values is True and root.value.upper().startswith(cadena):
+                    print(root.value)
+                __inorden_start_with(root.right, cadena)
+
+        __inorden_start_with(self.root, cadena)
+
     def contar_heroes(self):
+        '''cuenta la cantidad de superheroes en el arbol'''
         def __contar_heroes(root):
             count = 0
             if root is not None:
@@ -313,6 +319,7 @@ class BinaryTree:
         return __contar_heroes(self.root)
    
     def contar_villanos(self):
+        '''cuenta la cantidad de villanos en el arbol'''
         def __contar_villanos(root):
             count = 0
             if root is not None:
@@ -324,6 +331,7 @@ class BinaryTree:
         return __contar_villanos(self.root)
 
     def postorden_superheroe(self, is_hero):
+        '''realiza el barrido postorden de los superheroes'''
         def __postorden_hereo(root, is_hero):
             if root is not None:
                 __postorden_hereo(root.right, is_hero)
@@ -334,6 +342,7 @@ class BinaryTree:
 
     # ejercicio 6 
     def inorden_jedi_master(self,file_name,rank):
+        '''muestra los jedi con ranking jedi master'''
         def __inorden_jedi_master(root,file_name,rank):
             if root is not None:
                 __inorden_jedi_master(root.left, file_name, rank)
@@ -345,6 +354,7 @@ class BinaryTree:
         __inorden_jedi_master(self.root,file_name, rank)
 
     def inorden_green_lightsaber(self,file_name,color):
+        '''muestra los jedi que tienen sable de luz color verde'''
         def __inorden_green_lightsaber(root,file_name,color):
             if root is not None:
                 __inorden_green_lightsaber(root.left, file_name, color)
@@ -356,6 +366,7 @@ class BinaryTree:
         __inorden_green_lightsaber(self.root,file_name, color)
 
     def inorden_with_master(self,file_name):
+        '''muestra los jedi que tienen maestro'''
         def __inorden_with_master(root, file_name):
             if root is not None:
                 __inorden_with_master(root.left, file_name)
@@ -367,6 +378,7 @@ class BinaryTree:
         __inorden_with_master(self.root,file_name)
 
     def inorden_by_spicie(self,file_name,spicies):
+        '''muestra los jedi de una determinada especie'''
         def __inorden_by_spicie(root, file_name,spicies):
             if root is not None:
                 __inorden_by_spicie(root.left, file_name,spicies)
@@ -379,6 +391,7 @@ class BinaryTree:
         __inorden_by_spicie(self.root,file_name, spicies)
 
     def inorden_start_with_jedi(self,cadena):
+        '''muestra los jedi cuyo nombre comienza con la letra A'''
         def __inorden_start_with_jedi(root,cadena):
             if root is not None:
                 __inorden_start_with_jedi(root.left, cadena)
@@ -388,6 +401,7 @@ class BinaryTree:
         __inorden_start_with_jedi(self.root, cadena)
 
     def inorden_contain_hypen(self,cadena):
+        '''muestra los jedi cuyo nombre contiene -'''
         def __inorden_contain_hypen(root,cadena):
             if root is not None:
                 __inorden_contain_hypen(root.left,cadena)
@@ -420,6 +434,7 @@ class BinaryTree:
 
     # ejercicio 23
     def inorden_criatura_defeat_by(self):
+        '''barrido inorden de las criaturas y por quienes fueron derrotados'''
         def __inorden_criatura_defeat_by(root):
             if root is not None:
                 __inorden_criatura_defeat_by(root.left)
@@ -431,6 +446,7 @@ class BinaryTree:
         __inorden_criatura_defeat_by(self.root)
     
     def inorden_add_field_captured(self):
+        '''agrega el campo capturada por'''
         def __inorden_add_field_captured(root):
             if root is not None:
                 __inorden_add_field_captured(root.left)
@@ -440,6 +456,7 @@ class BinaryTree:
         __inorden_add_field_captured(self.root)
     
     def inorden_add_field_description(self):
+        '''agrega el campo decripcion'''
         def __inorden_add_field_description(root):
             if root is not None:
                 __inorden_add_field_description(root.left)
@@ -449,6 +466,7 @@ class BinaryTree:
         __inorden_add_field_description(self.root)
 
     def inorden_add_description(self):
+        '''agrega una descripcion a cada criatura'''
         def __inorden_add_description(root):
             if root is not None:
                 __inorden_add_description(root.left)
@@ -458,6 +476,7 @@ class BinaryTree:
         __inorden_add_description(self.root)
         
     def inorden_with_description(self):
+        '''barrido de las criaturas con su descripcion'''
         def __inorden_with_description(root):
             if root is not None:
                 __inorden_with_description(root.left)
@@ -467,19 +486,18 @@ class BinaryTree:
                 __inorden_with_description(root.right)
         __inorden_with_description(self.root)
         
-    def inorden_add_capturer(self, capturer_dict):
-        def __inorden_add_capturer(root, capturer_dict):
+    def inorden_add_capturer(self):
+        '''agrega un capturador a cada criatura'''
+        def __inorden_add_capturer(root):
             if root is not None:
-                __inorden_add_capturer(root.left, capturer_dict)
-                if root.value in capturer_dict:
-                    root.other_values['capturada'] = capturer_dict[root.value]
-                else:
-                    root.other_values['capturada'] = None
-                __inorden_add_capturer(root.right, capturer_dict)
-            
-        __inorden_add_capturer(self.root, capturer_dict)
+                __inorden_add_capturer(root.left)
+                capturer = input(f'{root.value}, capturado por: ')
+                root.other_values['capturada'] = capturer
+                __inorden_add_capturer(root.right)
+        __inorden_add_capturer(self.root)
 
     def inorden_with_capturer(self):
+        '''barrido inorden de las criaturas y sus capturadores'''
         def __inorden_with_capturer(root):
             if root is not None:
                 __inorden_with_capturer(root.left)
@@ -490,6 +508,7 @@ class BinaryTree:
         __inorden_with_capturer(self.root)
 
     def inorden_defeated_by(self, hero_name):
+        '''permite obtener que criaturas fueron derrotadas por un determinado heroe'''
         def __inorden_defeated_by(root, hero_name):
             if root is not None:
                 __inorden_defeated_by(root.left, hero_name)
@@ -500,6 +519,7 @@ class BinaryTree:
         __inorden_defeated_by(self.root, hero_name)
 
     def inorden_not_defeated(self):
+        '''barrido inorden de las criaturas que no fueron derrotadas'''
         def __inorden_not_defeated(root):
             if root is not None:
                 __inorden_not_defeated(root.left)
@@ -510,6 +530,7 @@ class BinaryTree:
         __inorden_not_defeated(self.root)
 
     def inorden_ranking(self, ranking):
+        '''determina los heroes que derrotaron mayor cantidad de criaturas'''
         def __inorden_ranking(root, ranking):
             if root is not None:
                 __inorden_ranking(root.left, ranking)
