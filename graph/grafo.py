@@ -30,6 +30,7 @@ class Grafo():
         self.dirigido = dirigido
 
     def insert_vertice(self, value, criterio=None):
+        '''inserta un vertice en orden'''
         if len(self.__elements) == 0 or criterio_comparacion(value, criterio) >= criterio_comparacion(self.__elements[-1][0], criterio):
             self.__elements.append([value, ListaArista(), False])
         elif criterio_comparacion(value, criterio) < criterio_comparacion(self.__elements[0][0], criterio):
@@ -41,6 +42,7 @@ class Grafo():
             self.__elements.insert(index, [value, ListaArista(), False])
 
     def insert_arist(self, vertice_ori, vertice_des, peso, criterio_vertice=None, criterio_arista='vertice'):
+        '''inserta arista entre dos vertices'''
         origen = self.search_vertice(vertice_ori, criterio_vertice)
         destino = self.search_vertice(vertice_des, criterio_vertice)
         if origen is not None and destino is not None:
@@ -49,6 +51,7 @@ class Grafo():
                 self.get_element_by_index(destino)[1].insert(Arista(vertice_ori, peso), criterio_arista)
 
     def search_vertice(self, search_value, criterio=None):
+        '''busca un vertice y retorna la posicion'''
         position = None
         first = 0
         last = self.size() - 1
@@ -63,6 +66,7 @@ class Grafo():
         return position
 
     def delete_vertice(self, value, criterio=None):
+        '''elimina un vertice y las aristas que lo apuntan'''
         return_value = None
         pos = self.search_vertice(value, criterio)
         if pos is not None:
@@ -73,6 +77,7 @@ class Grafo():
         return return_value
 
     def delete_arista(self, origen, destino):
+        '''elimina una arista entre dos vertices'''
         pos_origen = self.search_vertice(origen)
         if pos_origen is not None:
             ver_origen = self.get_element_by_index(pos_origen)
@@ -85,9 +90,11 @@ class Grafo():
             return delete
 
     def size(self):
+        '''retorna la cantidad de vertices'''
         return len(self.__elements)
 
     def barrido(self):
+        '''muestra los vertices y sus aristas'''
         for value in self.__elements:
             print(value[0])
             print('Arsitas --------------------')
@@ -105,12 +112,14 @@ class Grafo():
     #         print('no se puede ordenar por este criterio')
 
     def get_element_by_index(self, index):
+        '''retorna un vertice dada una posicion'''
         return_value = None
         if index >= 0 and index < self.size():
             return_value = self.__elements[index]
         return return_value
 
     def is_adyacent(self, origen, destino):
+        '''dice si dos vertice estan conectados'''
         result = False
         pos_origen = self.search_vertice(origen)
         if pos_origen is not None:
@@ -120,16 +129,19 @@ class Grafo():
         return result
 
     def adyacents(self, origen):
+        '''muestra vertices adyacentes'''
         pos_origen = self.search_vertice(origen)
         if pos_origen is not None:
             ver_origen = self.get_element_by_index(pos_origen)
             ver_origen[1].barrido()
 
     def mark_as_not_visited(self):
+        '''marca los vertices como no visitados'''
         for vertice in self.__elements:
             vertice[2] = False
 
     def deep_list(self, poscion=0):
+        '''recorrido en profundidad'''
         origen = self.get_element_by_index(poscion)
         if origen is not None:
             if not origen[2]:
@@ -145,6 +157,7 @@ class Grafo():
                             self.deep_list(poscion=vertice_adjacente)
                 
     def amplitude_list(self, posicion=0):
+        '''recorrido en amplitud'''
         origen = self.get_element_by_index(posicion)
         if origen is not None:
             cola_pendientes = Cola()
@@ -164,6 +177,7 @@ class Grafo():
                                 cola_pendientes.arrive(adjacente)
             
     def has_path(self, origen, destino, criterio=None):
+        '''dice si hay camino entre dos vertices'''
         result = False
         print(origen)
         origen = self.search_vertice(origen, criterio=criterio)
@@ -187,6 +201,7 @@ class Grafo():
         return result
 
     def dijkstra(self, origen, destino, criterio=None):
+        '''camino mas corto usando dijkstra'''
         from math import inf
         no_visitados = Heap()
         camino = Pila()
@@ -212,6 +227,7 @@ class Grafo():
 
 
     def kruskal(self):
+        '''hace un arbol de expansion minima usando kruskal'''
         def buscar_en_bosque(bosque, buscado):
             for index, arbol in enumerate(bosque):
                 print(buscado, arbol)
