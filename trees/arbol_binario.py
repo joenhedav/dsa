@@ -547,7 +547,7 @@ class BinaryTree:
         def __inorden_captured_by(root, hero_name):
             if root is not None:
                 __inorden_captured_by(root.left, hero_name)
-                if root.other_values['capturada'] == 'Heracles':
+                if root.other_values['capturada'] == hero_name:
                     print(root.value)
                 __inorden_captured_by(root.right, hero_name)
 
