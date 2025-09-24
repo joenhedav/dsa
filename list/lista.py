@@ -124,7 +124,7 @@ class Lista():
         superheroes= []
         for superheroe in self.__elements:
             if superheroe.aparicion > anio:
-                superheroes.append(superheroe.nombre)
+                superheroes.append((superheroe.nombre, superheroe.casa))
         return superheroes
     # punto f
     def casa_personaje(self,nombre):

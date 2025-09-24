@@ -53,11 +53,11 @@ if nombres:
     for nombre in nombres:
         print(nombre)
 # punto e 
-nombres = lista.aparicion_superior(1963)
-if nombres:
+info = lista.aparicion_superior(1963)
+if info:
     print('\nsuperheroes con aparicion superior a 1963')
-    for nombre in nombres:
-        print(nombre)
+    for nombre, casa in info:
+        print(f'{nombre} {casa}')
 # punto f 
 data = lista.casa_personaje('Capitana Marvel')
 if data is not None:

@@ -43,7 +43,6 @@ grafo_casa.insert_arist("hab2", "terraza", 3, criterio_vertice='nombre', criteri
 grafo_casa.insert_arist("hab2", "patio", 5, criterio_vertice='nombre', criterio_arista='vertice')
 # sala estar
 grafo_casa.insert_arist("sala_estar", "patio", 5, criterio_vertice='nombre', criterio_arista='vertice')
-grafo_casa.insert_arist("sala_estar", "quincho", 6, criterio_vertice='nombre', criterio_arista='vertice')
 grafo_casa.insert_arist("sala_estar", "hab1", 4, criterio_vertice='nombre', criterio_arista='vertice')
 # terraza
 grafo_casa.insert_arist("terraza", "patio", 4, criterio_vertice='nombre', criterio_arista='vertice')
@@ -54,7 +53,7 @@ grafo_casa.insert_arist("patio", "cochera", 5, criterio_vertice='nombre', criter
 # punto c
 bosque = grafo_casa.kruskal()
 for arbol in bosque:
-    print('arbol de expansion minima')
+    print('\narbol de expansion minima')
     for nodo in arbol.split(';'):
         print(nodo)
 
